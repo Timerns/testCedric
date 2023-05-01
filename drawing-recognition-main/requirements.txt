@@ -1,0 +1,6 @@
+keras
+numpy
+Pillow
+pygame
+tensorflow
+tensorflow_intel

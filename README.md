@@ -1,1 +1,56 @@
-# testCedric
+### HSG INTRODUCTION TO PROGRAMMING PROJECT
+### Digit_recognition
+Python application to recognize handwritten digits in real time!
+
+### Project's motivations
+I wanted to make a project about AI to understand the basics of it and came across 3B1B's video about neural networks
+
+[![IMAGE_ALT](ressources/3b1b_video_thumbnail.jpg)](https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&ab_channel=3Blue1Brown)  
+
+That's why I started with one of the most basic NN project, digits recognition.
+
+
+### Installation
+(go in the drawing-recognition-main folder)
+
+- Run `python -m pip install -r .\requirements.txt`
+- Run `python app.py`
+  - If it gives an error, run `python model.py` first
+
+
+### Controls 
+ - Left click to draw
+ - Right click to erase 
+ - Middle click to reset
+
+### Preview
+
+Pygame window
+![img.png](ressources/pygame_window.png)
+
+Recognition preview
+![img.png](ressources/recognition_preview.png)
+
+### Model Description
+
+#### Layers
+1. **Conv2D**: A 2D convolutional layer with 16 filters, a kernel size of (3, 3), and a ReLU activation function. This layer expects an input shape of (28, 28, 1).
+2. **Dropout**: A dropout layer with a rate of 0.5, which helps prevent overfitting by randomly setting input units to 0 during training.
+3. **MaxPooling2D**: A 2D max pooling layer with a pool size of (2, 2), which reduces the spatial dimensions of the input.
+4. **Conv2D**: Another 2D convolutional layer with 16 filters, a kernel size of (3, 3), and a ReLU activation function.
+5. **MaxPooling2D**: Another 2D max pooling layer with a pool size of (2, 2).
+6. **Flatten**: A flatten layer that reshapes the input into a 1D array, which is necessary before passing it to the dense layers.
+7. **Dropout**: Another dropout layer with a rate of 0.5.
+8. **Dense**: A fully connected layer with 132 units and a ReLU activation function.
+9. **Dense**: The output layer, which is a fully connected layer with 10 units and a softmax activation function. This layer outputs the probability distribution over the 10 digits.
+
+#### Hyper parameters
+- **Optimizer**: Adam
+- **Loss function**: Categorical sparse cross-entropy
+- **Dropout rate**: 0.5
+
+#### Regularization techniques
+- **Dropout**
+- **Data Augmentation**
+  - Width shift range=0.3
+  - Height_shift_range=0.3
