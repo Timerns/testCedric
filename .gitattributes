@@ -1,0 +1,4 @@
+* text=auto
+
+*.pb text eol=lf
+variables.* text eol=lf
